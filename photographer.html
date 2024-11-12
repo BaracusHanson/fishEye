@@ -30,33 +30,38 @@
         </button>
         <div class="photographerImg"></div>
       </div>
-      <section class="articleSection">
-        <!-- <div class="article">
-          <img
-            src="./assets/photographers/Animals_Majesty.jpg"
-            alt=""
-            class="articleImg"
-          />
-          <div class="articleInfos">
-            <h2 class="articleTitle">Card Title 1</h2>
-            <p class="likes">
-              <span> 11 </span>
-              <i class="fa-regular fa-heart"></i>
-            </p>
-          </div>
-        </div> -->
-      </section>
+      <section class="articleSection"></section>
       <div class="fees">
         <p class="totalLiked"></p>
         <p class="price"></p>
       </div>
+      <div class="cube">
+        <div class="carouselModal" id="carouselModal">
+          <div class="carouselContent">
+            <span class="closeBtn">&times;</span>
+            <div
+              class="carouselMediaContainer"
+              id="carouselMediaContainer"
+            ></div>
+            <button class="prevBtn" id="prevBtn" >
+              &#10094;
+            </button>
+            <button class="nextBtn" id="nextBtn">&#10095;</button>
+          </div>
+        </div>
+      </div>
     </main>
+
     <div id="contact_modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
           <h3>jean</h3>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img
+            src="assets/icons/close.svg"
+            onclick="closeModal()"
+            class="close"
+          />
         </header>
         <form>
           <div>

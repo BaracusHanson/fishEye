@@ -49,8 +49,6 @@ async function showPhotographerDetails() {
   // console.log(price);
   price.innerHTML = `${photographer.price}&euro;/jour`;
 
-
-
   // Ajouter les éléments au header
   photographersHeaderImg.appendChild(img);
   photographersHeaderText.appendChild(h1);
@@ -62,11 +60,6 @@ async function showPhotographerDetails() {
 
 // Appel de la fonction pour afficher les détails du photographe au chargement de la page
 showPhotographerDetails();
-
-/**
- * gestion photos des photographer
- *
- */
 
 // Fonction pour récupérer les données MEDIAS des photographes depuis le fichier JSON
 
@@ -86,49 +79,118 @@ async function getPhotgraphersMediasById() {
     (m) => m.photographerId === parseInt(photographerId)
   );
 
-  console.log(mediaByUser);
+  console.log("media:", mediaByUser);
+
   const sumLike = mediaByUser.reduce((accumulateur, media) => {
-    return accumulateur + media.likes
+    return accumulateur + media.likes;
   }, 0);
-  console.log(sumLike);
+
   if (!mediaByUser) {
     console.error("media introuvable");
     return;
   }
 
   const articleSection = document.querySelector(".articleSection");
-  const article = document.querySelector(".article");
-  console.log(articleSection);
+  // console.log(articleSection);
   const totalLiked = document.querySelector(".totalLiked");
-  
+
   totalLiked.innerHTML = `${sumLike}<i class="fa-regular fa-heart"></i>`;
 
   mediaByUser.forEach((media) => {
     // Vérifie si media contient une image ou une vidéo
-    const mediaContent = media.image 
+    // console.log(media.image);
+
+    const mediaContent = media.image
       ? `<img src="./assets/photographers/${media.image}" alt="${media.title}" class="articleImg"/>`
       : `<video controls class="articleVideo">
            <source src="./assets/photographers/${media.video}" type="video/mp4">
-           Votre navigateur ne supporte pas la lecture de vidéos.
          </video>`;
-  
+
     articleSection.innerHTML += `
       <div class="article">
-        ${mediaContent} <!-- Insère soit l'image soit la vidéo -->
+        ${mediaContent} 
         <div class="articleInfos">
           <h2 class="articleTitle">${media.title}</h2>
           <p class="likes">
             <span>${media.likes}</span>
-            <i class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-heart" ></i>
             <i class="fa-solid fa-heart"></i>
           </p>
         </div>
       </div>`;
   });
-  
 
-  articleSection.appendChild(article);
-  console.log(article);
+  const mediaElements = articleSection.querySelectorAll(
+    ".articleImg, .articleVideo"
+  );
+  // console.log(mediaElements);
+  mediaElements.forEach((el, index) => {
+    el.addEventListener("click", (e) => {
+// Sélection des éléments nécessaires
+const carouselModal = document.getElementById("carouselModal");
+const carouselMediaContainer = document.getElementById("carouselMediaContainer");
+let currentMediaIndex = 0;
+
+// Fonction pour afficher le média actuel dans le carrousel
+function showMedia() {
+  const media = mediaByUser[currentMediaIndex];
+  
+  // Vérifiez si le média contient une image ou une vidéo
+  const mediaContent = media.image 
+    ? `<img src="/assets/photographers/${media.image}" alt="${media.title}" class="carouselImage">`
+    : `<video controls class="carouselVideo">
+         <source src="/assets/photographers/${media.video}" type="video/mp4">
+         Votre navigateur ne supporte pas la lecture de vidéos.
+       </video>`;
+
+  // Insère le contenu dans le conteneur du carrousel
+  carouselMediaContainer.innerHTML = mediaContent;
+}
+
+// Fonction pour ouvrir le carrousel et afficher le média cliqué en premier
+function openCarousel(index) {
+  currentMediaIndex = index; // Définit l'index du média actuel sur l'index cliqué
+  showMedia(); // Affiche le média actuel
+  carouselModal.style.display = "block"; // Affiche la modale
+}
+
+// Fonction pour fermer le carrousel
+function closeCarousel() {
+  carouselModal.style.display = "none";
+}
+
+// Navigation vers le média suivant
+function showNextMedia() {
+  currentMediaIndex = (currentMediaIndex + 1) % mediaByUser.length;
+  showMedia();
+}
+
+// Navigation vers le média précédent
+function showPreviousMedia() {
+  currentMediaIndex = (currentMediaIndex - 1 + mediaByUser.length) % mediaByUser.length;
+  showMedia();
+}
+
+// Ajouter les événements de clic aux boutons de navigation et de fermeture
+document.getElementById("nextBtn").addEventListener("click", showNextMedia);
+document.getElementById("prevBtn").addEventListener("click", showPreviousMedia);
+document.querySelector(".closeBtn").addEventListener("click", closeCarousel);
+
+// Ferme la modale si on clique en dehors
+window.addEventListener("click", (event) => {
+  if (event.target === carouselModal) {
+    closeCarousel();
+  }
+});
+
+// Ajoute un événement de clic sur chaque image et vidéo pour ouvrir le carrousel
+document.querySelectorAll(".articleImg, .articleVideo").forEach((mediaElement, index) => {
+  mediaElement.addEventListener("click", () => openCarousel(index));
+});
+
+      
+    });
+  });
 }
 
 getPhotgraphersMediasById();
