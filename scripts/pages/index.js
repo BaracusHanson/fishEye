@@ -1,10 +1,8 @@
 async function getPhotographers() {
-  // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet,
-  // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-  let datas = await fetch("../data/photographers.json");
 
-  const photographers = datas.json();
-  // et bien retourner le tableau photographers seulement une fois récupéré
+  let datas = await fetch("../data/photographers.json");
+  const photographers = await datas.json();
+
   return photographers;
 }
 
@@ -15,6 +13,14 @@ async function displayData(photographers) {
     const photographerModel = photographerTemplate(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
     photographersSection.appendChild(userCardDOM);
+
+    userCardDOM.addEventListener("click", () => {
+      const photographerId = photographer.id;
+      // Redirection vers photographer.html avec l'ID dans l'URL
+      const url = new URL("photographer.html", window.location.origin);
+      url.searchParams.set("id", photographerId);
+      window.location.href = url.toString();
+    });
   });
 }
 
