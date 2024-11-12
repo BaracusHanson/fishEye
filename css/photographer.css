@@ -1,5 +1,7 @@
 #contact_modal {
     display: none;
+    width: 100%;
+    border: 1px solid red;
 }
 
 .photograph-header {
@@ -89,13 +91,141 @@ form input {
     font-weight: 400;
     line-height: normal;
 }
-.text>p{
+
+.text>p {
     font-size: 1.5rem;
 }
-.text>p:nth-child(3){
+
+.text>p:nth-child(3) {
     color: #525252;
     text-align: start;
+    padding: 16px 0;
 }
-.text>p:nth-child(2){
- text-align: start;
+
+.text>p:nth-child(2),
+h2 {
+    text-align: start;
+    margin-top: 19px;
+}
+
+.articleSection {
+    /* background-color: #1dc91d; */
+    margin: 0 100px;
+    margin-top: 101px;
+    box-sizing: border-box;
+}
+
+.articleSection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Crée 3 colonnes de tailles égales */
+    grid-template-rows: repeat(3, 1fr);
+    padding: 20px;
+    gap: 20px;
+
+}
+
+
+.article {
+    width: 350px;
+    height: 100%;
+    width: 100%;
+    /* Carte prend 100% de la largeur de sa colonne */
+    /* max-width: 350px; */
+    /* max-height: 300px; */
+    /* Limite la taille maximale de chaque carte */
+
+    /* background-color: #f9f9f9; */
+    /* Couleur d'arrière-plan de la carte */
+    border-radius: 5px;
+    /* Coins arrondis */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* Ombre pour un effet de carte */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Centrer le contenu de la carte */
+}
+
+.articleImg, .articleVideo {
+    border-radius: 5px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+   
+}
+
+
+.articleTitle {
+    color: #901C1C;
+    font-family: "DM Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+}
+
+.articleInfos {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 10px 0px;
+}
+
+.likes {
+    color: #901C1C;
+    font-family: "DM Sans";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    position: relative;
+
+}
+.likes>i:nth-child(2), i:nth-child(3){
+    position: absolute;
+    right: 0px;
+    bottom: 3px;
+}
+.likes>i:nth-child(3){
+display: none;
+}
+
+.likes>span {
+    color: #901C1C;
+    font-family: "DM Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    padding-right: 25px;
+}
+
+main {
+    position: relative;
+    overflow: hidden;
+}
+
+.fees {
+    position: fixed;
+    bottom: 0;
+    right: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 376px;
+    height: 89px;
+    border-radius: 5px;
+    background: #DB8876;
+}
+
+.fees>p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    font-family: "DM Sans";
+    padding: 0 15px;
 }
