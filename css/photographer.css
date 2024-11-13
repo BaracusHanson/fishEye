@@ -1,6 +1,7 @@
 #contact_modal {
     display: none;
-    height: 100vh;
+    /* height: 100vh; */
+    height: 100%;
     display: flex;
     align-items: center;
     /* border: 1px solid red; */
@@ -35,11 +36,7 @@
     background-color: #DB8876;
     /* width: 50%; */
     width: 669px;
-
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; */
+    display: none;
     padding: 35px;
     margin: auto;
 
@@ -55,9 +52,9 @@
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 3rem;
     font-weight: normal;
-    text-align: center;
+    /* text-align: center; */
 }
 
 form {
@@ -111,7 +108,8 @@ form input {
 .text>p:nth-child(2),
 h2 {
     text-align: start;
-    margin-top: 19px;
+    /* margin-top: 19px; */
+    margin: 0;
 }
 
 .articleSection {
@@ -151,7 +149,8 @@ h2 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 10px;
     /* Centrer le contenu de la carte */
 }
 
@@ -256,14 +255,14 @@ main {
 .carouselContent {
     position: relative;
     margin: auto;
-    margin-top: 50%;
-    transform: translateY(-50%);
+    /* margin-top: 50%; */
+    /* transform: translateY(-50%); */
     /* width: 80%; */
-    max-width: 900px;
-    max-height: 800px;
+    /* max-width: 900px; */
+    /* max-height: 800px; */
     width: 900px;
-    height: 800px;
-    background-color: #fff;
+    height: 100vh;
+    /* background-color: #fff; */
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -291,9 +290,9 @@ main {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    font-size: 18px;
+    background-color: transparent;
+    color: #901C1C;
+    font-size: 3rem;
     cursor: pointer;
     padding: 10px;
     border: none;
@@ -304,15 +303,20 @@ main {
 }
 
 .nextBtn {
-    right: 10px;
+    right: -10px;
+    /* left: 10px; */
+    /* top: 0px; */
+    /* border: 1px solid red; */
 }
 
 .carouselImage,
 .carouselVideo {
     border-radius: 0px;
-    object-fit: cover;
+    /* object-fit: cover; */
+
     width: 800px;
     height: 500px;
+    /* border: 10px solid; */
 
 
 }
@@ -322,4 +326,33 @@ main {
     width: 800px;
 }
 
-.carouselImage {}
+.carouselBg {
+    background-color: #fafafa;
+    /* border: 1px solid red; */
+    height: 100%;
+}
+
+.close {
+    width: 76px;
+    height: 76px;
+}
+
+.photographercontactNameContainer {
+    /* display: flex;
+    flex-direction: column;
+    text-align: start; */
+    z-index: 9;
+}
+
+.photographercontactName {
+    margin: 0;
+    text-align: left;
+    /* color: #D3573C; */
+    font-family: "DM Sans";
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+
+    padding: 0 0 52px;
+
+}

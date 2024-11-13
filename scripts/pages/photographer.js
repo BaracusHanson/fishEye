@@ -31,6 +31,9 @@ async function showPhotographerDetails() {
   // Affiche les détails dans la section .photograph-header
   const photographersHeaderText = document.querySelector(".text");
   const photographersHeaderImg = document.querySelector(".photographerImg");
+  const photographercontactName = document.querySelector(".photographercontactName");
+
+  photographercontactName.textContent = photographer.name
 
   const img = document.createElement("img");
   img.setAttribute("src", `assets/photographers/${photographer.portrait}`);
@@ -194,3 +197,4 @@ document.querySelectorAll(".articleImg, .articleVideo").forEach((mediaElement, i
 }
 
 getPhotgraphersMediasById();
+

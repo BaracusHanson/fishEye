@@ -37,16 +37,16 @@
       </div>
       <div class="cube">
         <div class="carouselModal" id="carouselModal">
-          <div class="carouselContent">
-            <span class="closeBtn">&times;</span>
-            <div
-              class="carouselMediaContainer"
-              id="carouselMediaContainer"
-            ></div>
-            <button class="prevBtn" id="prevBtn" >
-              &#10094;
-            </button>
-            <button class="nextBtn" id="nextBtn">&#10095;</button>
+          <div class="carouselBg">
+            <div class="carouselContent">
+              <span class="closeBtn">&times;</span>
+              <div
+                class="carouselMediaContainer"
+                id="carouselMediaContainer"
+              ></div>
+              <button class="prevBtn" id="prevBtn">&#10094;</button>
+              <button class="nextBtn" id="nextBtn">&#10095;</button>
+            </div>
           </div>
         </div>
       </div>
@@ -55,8 +55,10 @@
     <div id="contact_modal">
       <div class="modal">
         <header>
-          <h2>Contactez-moi</h2>
-          <h3>jean</h3>
+          <div class="photographercontactNameContainer">
+            <h2>Contactez-moi</h2>
+            <h3 class="photographercontactName">jean</h3>
+          </div>
           <img
             src="assets/icons/close.svg"
             onclick="closeModal()"
