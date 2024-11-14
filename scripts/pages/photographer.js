@@ -127,7 +127,7 @@ async function getPhotgraphersMediasById() {
     ".articleImg, .articleVideo"
   );
   // console.log(mediaElements);
-  mediaElements.forEach((el, index) => {
+  mediaElements.forEach((el) => {
     el.addEventListener("click", (e) => {
 // Sélection des éléments nécessaires
 const carouselModal = document.getElementById("carouselModal");

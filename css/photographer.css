@@ -1,12 +1,16 @@
 #contact_modal {
     display: none;
-    /* height: 100vh; */
     height: 100%;
     display: flex;
+    width: 100%;
     align-items: center;
-    /* border: 1px solid red; */
-
+    justify-content: center;
+    background-color: #7e7a7a69;
+    /* position: fixed;
+    top: 0; */
 }
+
+
 
 .photograph-header {
     background-color: #FAFAFA;
@@ -34,11 +38,10 @@
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    /* width: 50%; */
     width: 669px;
     display: none;
-    padding: 35px;
-    margin: auto;
+    padding: 55px;
+    z-index: 15;
 
 }
 
